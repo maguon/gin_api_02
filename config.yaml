@@ -1,0 +1,55 @@
+# production
+system:
+  port: 8888
+  mode: debug
+  use-multipoint: true
+  
+# jwt configuration
+jwt:
+  signing-key: qmPlus
+  expires-time: 7d
+  buffer-time: 1d
+  issuer: qmPlus
+
+# zap logger configuration
+zap:
+  level: debug
+  format: console
+  prefix: "[gin_api]"
+  director: log
+  outputPaths: ["stdout", "/log"]
+  show-line: true
+  encode-level: LowercaseColorLevelEncoder
+  stacktrace-key: stacktrace
+  log-in-console: true
+
+# captcha configuration
+captcha:
+  key-long: 6
+  img-width: 240
+  img-height: 80
+
+# redis configuration
+redis:
+  db: 0
+  addr: 127.0.0.1:6379
+  password: ""
+
+# pgsql configuration
+pgsql:
+  path: "localhost"
+  port: "5432"
+  config: ""
+  db-name: "hr_db"
+  username: "postgres"
+  password: "postgres"
+  max-idle-conns: 10
+  max-open-conns: 100
+  log-mode: "debug"
+  log-zap: false
+  PreferSimpleProtocol: true
+# mongodb configuartion
+mongo:
+  host: "127.0.0.1"
+  port: "27017"
+  db: "mdb"

@@ -1,0 +1,1022 @@
+definitions:
+  pgtype.JSONB:
+    properties:
+      bytes:
+        items:
+          type: integer
+        type: array
+      status:
+        type: integer
+    type: object
+  request.Login:
+    properties:
+      captcha:
+        description: 验证码
+        type: string
+      captchaId:
+        description: 验证码ID
+        type: string
+      password:
+        description: 密码
+        type: string
+      username:
+        description: 用户名
+        type: string
+    type: object
+  request.SysUserPassword:
+    properties:
+      newPassword:
+        description: 新密码
+        type: string
+      password:
+        description: 密码
+        type: string
+    type: object
+  response.AdminInfo:
+    properties:
+      avatar:
+        type: string
+      createdAt:
+        type: string
+      email:
+        type: string
+      gender:
+        type: integer
+      id:
+        type: integer
+      password:
+        type: string
+      phone:
+        description: 用户手机号
+        type: string
+      status:
+        type: integer
+      type:
+        type: integer
+      updatedAt:
+        type: string
+      userName:
+        description: 用户登录名
+        type: string
+    type: object
+  response.AdminLoginResponse:
+    properties:
+      admin:
+        $ref: '#/definitions/response.AdminInfo'
+      expiresAt:
+        type: integer
+      token:
+        type: string
+    type: object
+  response.AdminType:
+    properties:
+      createdAt:
+        type: string
+      id:
+        type: integer
+      menuList:
+        $ref: '#/definitions/pgtype.JSONB'
+      remark:
+        type: string
+      typeName:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+  response.AppInfo:
+    properties:
+      appType:
+        type: integer
+      createdAt:
+        type: string
+      deviceType:
+        type: integer
+      forceUpdate:
+        type: integer
+      id:
+        type: integer
+      minVersionNum:
+        example: "0"
+        type: string
+      remark:
+        type: string
+      status:
+        type: integer
+      updatedAt:
+        type: string
+      url:
+        type: string
+      version:
+        type: string
+      versionNum:
+        example: "0"
+        type: string
+    type: object
+  response.LoginResponse:
+    properties:
+      expiresAt:
+        type: integer
+      token:
+        type: string
+      user:
+        $ref: '#/definitions/response.UserInfo'
+    type: object
+  response.QueryResult:
+    properties:
+      list: {}
+      page:
+        type: integer
+      pageSize:
+        type: integer
+      total:
+        type: integer
+    type: object
+  response.Response:
+    properties:
+      data: {}
+      msg:
+        type: string
+      success:
+        type: boolean
+    type: object
+  response.SysCaptchaResponse:
+    properties:
+      captchaId:
+        type: string
+      img:
+        type: string
+    type: object
+  response.UserInfo:
+    properties:
+      activeColor:
+        description: 活跃颜色
+        type: string
+      authorityId:
+        type: integer
+      baseColor:
+        description: 基础颜色
+        type: string
+      createdAt:
+        type: string
+      email:
+        description: 用户邮箱
+        type: string
+      enable:
+        description: 用户是否被冻结 1正常 2冻结
+        type: integer
+      headerImg:
+        description: 用户头像
+        type: string
+      id:
+        type: integer
+      nickName:
+        description: 用户昵称
+        type: string
+      phone:
+        description: 用户手机号
+        type: string
+      sideMode:
+        description: 用户侧边主题
+        type: string
+      updatedAt:
+        type: string
+      userName:
+        description: 用户登录名
+        type: string
+      uuid:
+        description: 用户UUID
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /admin/app:
+    post:
+      parameters:
+      - description: auth-token
+        in: header
+        name: auth-token
+        required: true
+        type: string
+      - description: 用户名, 密码, 验证码
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/response.AppInfo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 返回包括用户组信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.AppInfo'
+                msg:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 新增AppInfo
+      tags:
+      - App
+  /admin/app/{appId}:
+    delete:
+      parameters:
+      - description: auth-token
+        in: header
+        name: auth-token
+        required: true
+        type: string
+      - description: App ID
+        in: path
+        name: typeId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: AdminType列表,返回包括列表,总数,页码,每页数量
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.QueryResult'
+                msg:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 删除app版本信息
+      tags:
+      - App
+    put:
+      parameters:
+      - description: auth-token
+        in: header
+        name: auth-token
+        required: true
+        type: string
+      - description: app ID
+        in: path
+        name: appId
+        required: true
+        type: integer
+      - description: ' '
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/response.AppInfo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 返回AppInfo
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.AppInfo'
+                msg:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 更新app信息
+      tags:
+      - App
+  /admin/password:
+    put:
+      parameters:
+      - description: auth-token
+        in: header
+        name: auth-token
+        required: true
+        type: string
+      - description: ' 原密码, 新密码'
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.SysUserPassword'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 返回更新结果信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                msg:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 新增用户组
+      tags:
+      - Admin
+  /admin/serverInfo:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: auth-token
+        in: header
+        name: auth-token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 获取服务器信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  additionalProperties: true
+                  type: object
+                msg:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 获取服务器信息
+      tags:
+      - System
+  /admin/sysUser:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: auth-token
+        in: header
+        name: auth-token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 获取用户信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  additionalProperties: true
+                  type: object
+                msg:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 获取用户信息
+      tags:
+      - Admin
+    post:
+      parameters:
+      - description: auth-token
+        in: header
+        name: auth-token
+        required: true
+        type: string
+      - description: 用户信息
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/response.AdminInfo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 返回包括用户组信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.AdminInfo'
+                msg:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 新增系统用户
+      tags:
+      - Admin
+  /admin/sysUser.csv:
+    get:
+      parameters:
+      - description: auth-token
+        in: header
+        name: auth-token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: AdminInfo导出列表,返回包括列表,总数,页码,每页数量
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.QueryResult'
+                msg:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 导出Sys AdminInfo CSV
+      tags:
+      - Admin
+  /admin/sysUser/{sysUserId}:
+    put:
+      parameters:
+      - description: auth-token
+        in: header
+        name: auth-token
+        required: true
+        type: string
+      - description: sys user ID
+        in: path
+        name: typeId
+        required: true
+        type: integer
+      - description: 用户名, 密码, 验证码
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/response.AdminInfo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 返回包括用户组信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.AdminInfo'
+                msg:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 新增用户组
+      tags:
+      - Admin
+  /admin/sysUserList:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: auth-token
+        in: header
+        name: auth-token
+        required: true
+        type: string
+      - in: query
+        name: avatar
+        type: string
+      - in: query
+        name: createdAt
+        type: string
+      - in: query
+        name: createdEnd
+        type: string
+      - in: query
+        name: createdStart
+        type: string
+      - in: query
+        name: email
+        type: string
+      - in: query
+        name: gender
+        type: integer
+      - in: query
+        name: id
+        type: integer
+      - description: 页码
+        in: query
+        name: pageNumber
+        type: integer
+      - description: 每页大小
+        in: query
+        name: pageSize
+        type: integer
+      - in: query
+        name: password
+        type: string
+      - description: 用户手机号
+        in: query
+        name: phone
+        type: string
+      - in: query
+        name: status
+        type: integer
+      - in: query
+        name: type
+        type: integer
+      - in: query
+        name: updatedAt
+        type: string
+      - in: query
+        name: updatedEnd
+        type: string
+      - in: query
+        name: updatedStart
+        type: string
+      - description: 用户登录名
+        in: query
+        name: userName
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: SysUser列表,返回包括列表,总数,页码,每页数量
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.QueryResult'
+                msg:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 分页获取SysUser列表
+      tags:
+      - Admin
+  /admin/type:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: auth-token
+        in: header
+        name: auth-token
+        required: true
+        type: string
+      - in: query
+        name: createdAt
+        type: string
+      - in: query
+        name: createdEnd
+        type: string
+      - in: query
+        name: createdStart
+        type: string
+      - in: query
+        name: id
+        type: integer
+      - description: 页码
+        in: query
+        name: pageNumber
+        type: integer
+      - description: 每页大小
+        in: query
+        name: pageSize
+        type: integer
+      - in: query
+        name: remark
+        type: string
+      - in: query
+        name: typeName
+        type: string
+      - in: query
+        name: updatedAt
+        type: string
+      - in: query
+        name: updatedEnd
+        type: string
+      - in: query
+        name: updatedStart
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: AdminType列表,返回包括列表,总数,页码,每页数量
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.QueryResult'
+                msg:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 分页获取AdminType列表
+      tags:
+      - Admin
+    post:
+      parameters:
+      - description: auth-token
+        in: header
+        name: auth-token
+        required: true
+        type: string
+      - description: 用户名, 密码, 验证码
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/response.AdminType'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 返回包括用户组信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.LoginResponse'
+                msg:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 新增用户组
+      tags:
+      - Admin
+  /admin/type/{typeId}:
+    delete:
+      parameters:
+      - description: auth-token
+        in: header
+        name: auth-token
+        required: true
+        type: string
+      - description: type ID
+        in: path
+        name: typeId
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: AdminType列表,返回包括列表,总数,页码,每页数量
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.QueryResult'
+                msg:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 分页获取AdminType列表
+      tags:
+      - Admin
+    put:
+      parameters:
+      - description: auth-token
+        in: header
+        name: auth-token
+        required: true
+        type: string
+      - description: type ID
+        in: path
+        name: typeId
+        required: true
+        type: integer
+      - description: 用户名, 密码, 验证码
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/response.AdminType'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 返回包括用户组信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.LoginResponse'
+                msg:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 新增用户组
+      tags:
+      - Admin
+  /private/user:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: auth-token
+        in: header
+        name: auth-token
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 获取用户信息
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  additionalProperties: true
+                  type: object
+                msg:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: 获取用户信息
+      tags:
+      - User
+  /public/adminLogin:
+    post:
+      parameters:
+      - description: 用户名, 密码, 验证码
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.Login'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 返回包括用户信息,token,过期时间
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.AdminLoginResponse'
+                msg:
+                  type: string
+              type: object
+      summary: 用户登录
+      tags:
+      - Admin
+  /public/app:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - in: query
+        name: appType
+        type: integer
+      - in: query
+        name: createdAt
+        type: string
+      - in: query
+        name: createdEnd
+        type: string
+      - in: query
+        name: createdStart
+        type: string
+      - in: query
+        name: deviceType
+        type: integer
+      - in: query
+        name: forceUpdate
+        type: integer
+      - in: query
+        name: id
+        type: integer
+      - example: "0"
+        in: query
+        name: minVersionNum
+        type: string
+      - description: 页码
+        in: query
+        name: pageNumber
+        type: integer
+      - description: 每页大小
+        in: query
+        name: pageSize
+        type: integer
+      - in: query
+        name: remark
+        type: string
+      - in: query
+        name: status
+        type: integer
+      - in: query
+        name: updatedAt
+        type: string
+      - in: query
+        name: updatedEnd
+        type: string
+      - in: query
+        name: updatedStart
+        type: string
+      - in: query
+        name: url
+        type: string
+      - in: query
+        name: version
+        type: string
+      - example: "0"
+        in: query
+        name: versionNum
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: AppInfo列表,返回包括列表,总数,页码,每页数量
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.QueryResult'
+                msg:
+                  type: string
+              type: object
+      summary: 分页获取App列表
+      tags:
+      - App
+  /public/captcha:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 生成验证码,返回包括随机数id,base64,验证码长度
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.SysCaptchaResponse'
+                msg:
+                  type: string
+              type: object
+      summary: 生成验证码
+      tags:
+      - Base
+  /public/film:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - in: query
+        items:
+          type: string
+        name: casts
+        type: array
+      - in: query
+        name: castsItem
+        type: string
+      - in: query
+        items:
+          type: string
+        name: category
+        type: array
+      - in: query
+        name: categroyItem
+        type: string
+      - in: query
+        name: content
+        type: string
+      - in: query
+        name: createdAt
+        type: string
+      - in: query
+        name: createdEnd
+        type: string
+      - in: query
+        name: createdStart
+        type: string
+      - example: "0"
+        in: query
+        name: duration
+        type: string
+      - in: query
+        name: id
+        type: integer
+      - in: query
+        name: img
+        type: string
+      - description: 页码
+        in: query
+        name: pageNumber
+        type: integer
+      - description: 每页大小
+        in: query
+        name: pageSize
+        type: integer
+      - in: query
+        name: publishDate
+        type: string
+      - in: query
+        name: publishEnd
+        type: string
+      - in: query
+        name: publishStart
+        type: string
+      - in: query
+        name: remarks
+        type: string
+      - in: query
+        name: status
+        type: integer
+      - in: query
+        name: studio
+        type: string
+      - in: query
+        name: thumbnail
+        type: string
+      - in: query
+        name: title
+        type: string
+      - in: query
+        name: uniqueId
+        type: string
+      - in: query
+        name: updatedAt
+        type: string
+      - in: query
+        name: updatedEnd
+        type: string
+      - in: query
+        name: updatedStart
+        type: string
+      - in: query
+        name: url
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: FilmInfo列表,返回包括列表,总数,页码,每页数量
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.QueryResult'
+                msg:
+                  type: string
+              type: object
+      summary: 分页获取Film列表
+      tags:
+      - Film
+  /public/login:
+    post:
+      parameters:
+      - description: 用户名, 密码, 验证码
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.Login'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 返回包括用户信息,token,过期时间
+          schema:
+            allOf:
+            - $ref: '#/definitions/response.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/response.LoginResponse'
+                msg:
+                  type: string
+              type: object
+      summary: 用户登录
+      tags:
+      - User
+swagger: "2.0"

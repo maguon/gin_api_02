@@ -1,0 +1,183 @@
+2022-10-23 01:05:04	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/main.go:15	server start 
+2022-10-23 23:25:52	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2022-10-26 00:15:56	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:41	RedisStoreGetError!	{"error": "redis: nil"}
+2022-10-26 00:19:27	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:41	RedisStoreGetError!	{"error": "redis: nil"}
+2022-10-26 00:20:16	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:34	登陆失败! 用户名不存在或者密码错误!	{"error": "ERROR: relation \"user_infos\" does not exist (SQLSTATE 42P01)"}
+2022-10-26 00:22:23	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:41	RedisStoreGetError!	{"error": "redis: nil"}
+2022-10-26 00:22:59	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:34	登陆失败! 用户名不存在或者密码错误!	{"error": "ERROR: relation \"user_infos\" does not exist (SQLSTATE 42P01)"}
+2022-10-26 00:34:31	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:34	登陆失败! 用户名不存在或者密码错误!	{"error": "ERROR: column \"username\" does not exist (SQLSTATE 42703)"}
+2022-10-26 00:37:40	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:34	登陆失败! 用户名不存在或者密码错误!	{"error": "ERROR: column \"username\" does not exist (SQLSTATE 42703)"}
+2022-10-26 00:43:09	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:49	登陆失败! 用户名不存在或者密码错误!	{"error": "ERROR: column \"username\" does not exist (SQLSTATE 42703)"}
+2022-10-26 00:43:39	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:49	登陆失败! 用户名不存在或者密码错误!	{"error": "ERROR: column \"username\" does not exist (SQLSTATE 42703)"}
+2022-10-28 23:47:05	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2022-10-28 23:47:14	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:49	登陆失败! 用户名不存在或者密码错误!	{"error": "db not init"}
+2022-10-28 23:48:00	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:49	登陆失败! 用户名不存在或者密码错误!	{"error": "ERROR: column \"username\" does not exist (SQLSTATE 42703)"}
+2022-10-28 23:54:57	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:49	登陆失败! 用户名不存在或者密码错误!	{"error": "ERROR: column user_info.deleted_at does not exist (SQLSTATE 42703)"}
+2022-10-28 23:55:17	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:49	登陆失败! 用户名不存在或者密码错误!	{"error": "ERROR: column user_info.deleted_at does not exist (SQLSTATE 42703)"}
+2022-10-28 23:56:29	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:49	登陆失败! 用户名不存在或者密码错误!	{"error": "ERROR: column user_info.deleted_at does not exist (SQLSTATE 42703)"}
+2022-10-28 23:57:38	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:49	登陆失败! 用户名不存在或者密码错误!	{"error": "ERROR: permission denied for table user_info (SQLSTATE 42501)"}
+2022-10-28 23:57:56	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:49	登陆失败! 用户名不存在或者密码错误!	{"error": "ERROR: permission denied for table user_info (SQLSTATE 42501)"}
+2022-10-28 23:58:45	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:49	登陆失败! 用户名不存在或者密码错误!	{"error": "密码错误"}
+2022-10-28 23:59:01	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:49	登陆失败! 用户名不存在或者密码错误!	{"error": "密码错误"}
+2022-10-29 00:00:32	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:49	登陆失败! 用户名不存在或者密码错误!	{"error": "密码错误"}
+2022-10-29 00:01:53	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:49	登陆失败! 用户名不存在或者密码错误!	{"error": "密码错误"}
+2022-10-29 00:03:36	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:49	登陆失败! 用户名不存在或者密码错误!	{"error": "密码错误"}
+2022-10-29 00:04:31	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/service/user_service.go:34	ERROR: cached plan must not change result type (SQLSTATE 0A000)
+2022-10-29 00:04:31	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:49	登陆失败! 用户名不存在或者密码错误!	{"error": "ERROR: cached plan must not change result type (SQLSTATE 0A000)"}
+2022-10-29 00:05:21	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:54	登陆失败! 用户被禁止登录!
+2022-10-29 00:09:36	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-10-29 00:09:53	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-10-29 00:10:07	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-10-29 00:11:43	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-10-29 00:11:51	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-10-29 00:11:51	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-10-29 00:11:52	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-10-29 23:22:22	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-10-29 23:22:53	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:39	登陆失败! 用户被禁止登录!
+2022-10-29 23:25:59	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-10-29 23:26:47	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-10-30 22:46:13	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2022-11-06 00:08:12	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-11-06 00:12:07	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:23	获取失败!	{"error": "record not found"}
+2022-11-06 00:16:55	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:23	获取失败!	{"error": "record not found"}
+2022-11-07 00:26:48	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:51	创建失败!	{"error": "ERROR: relation \"admin_type\" does not exist (SQLSTATE 42P01)"}
+2022-11-07 00:27:53	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:51	创建失败!	{"error": "ERROR: column \"created_on\" of relation \"admin_type\" does not exist (SQLSTATE 42703)"}
+2022-11-07 00:29:08	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:51	创建失败!	{"error": "ERROR: column \"remark\" of relation \"admin_type\" does not exist (SQLSTATE 42703)"}
+2022-11-07 00:29:40	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:51	创建失败!	{"error": "ERROR: null value in column \"id\" violates not-null constraint (SQLSTATE 23502)"}
+2022-11-07 00:33:38	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:51	创建失败!	{"error": "ERROR: cached plan must not change result type (SQLSTATE 0A000)"}
+2022-11-07 22:36:25	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:27	获取失败!	{"error": "ERROR: cached plan must not change result type (SQLSTATE 0A000)"}
+2022-11-07 22:51:57	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:51	创建失败!	{"error": "ERROR: null value in column \"created_on\" violates not-null constraint (SQLSTATE 23502)"}
+2022-11-07 22:52:25	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:51	创建失败!	{"error": "ERROR: null value in column \"created_on\" violates not-null constraint (SQLSTATE 23502)"}
+2022-11-07 23:00:17	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:51	创建失败!	{"error": "ERROR: null value in column \"created_on\" violates not-null constraint (SQLSTATE 23502)"}
+2022-11-07 23:02:03	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:51	创建失败!	{"error": "ERROR: null value in column \"created_on\" violates not-null constraint (SQLSTATE 23502)"}
+2022-11-07 23:20:09	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:52	创建失败!	{"error": "ERROR: null value in column \"created_on\" violates not-null constraint (SQLSTATE 23502)"}
+2022-11-07 23:46:20	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:54	创建失败!	{"error": "ERROR: invalid input syntax for type json (SQLSTATE 22P02)"}
+2022-11-07 23:47:05	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:54	创建失败!	{"error": "ERROR: invalid input syntax for type json (SQLSTATE 22P02)"}
+2022-11-07 23:52:15	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:54	创建失败!	{"error": "ERROR: relation \"admin_type_ins\" does not exist (SQLSTATE 42P01)"}
+2022-11-07 23:55:16	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:52	创建失败!	{"error": "ERROR: invalid input syntax for type json (SQLSTATE 22P02)"}
+2022-11-07 23:56:05	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:52	创建失败!	{"error": "ERROR: invalid input syntax for type json (SQLSTATE 22P02)"}
+2022-11-07 23:57:50	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:52	创建失败!	{"error": "ERROR: invalid input syntax for type json (SQLSTATE 22P02)"}
+2022-11-08 00:04:21	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:52	创建失败!	{"error": "ERROR: value too long for type character varying(50) (SQLSTATE 22001)"}
+2022-11-08 00:04:48	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:52	创建失败!	{"error": "ERROR: invalid input syntax for type json (SQLSTATE 22P02)"}
+2022-11-08 23:51:23	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:106	获取失败!	{"error": "ERROR: column \"sort\" does not exist (SQLSTATE 42703)"}
+2022-11-09 00:20:56	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/app_api.go:31	创建失败!	{"error": "ERROR: relation \"app_info_outs\" does not exist (SQLSTATE 42P01)"}
+2022-11-09 00:27:27	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/app_api.go:31	创建失败!	{"error": "ERROR: relation \"app_infos\" does not exist (SQLSTATE 42P01)"}
+2022-11-09 23:35:26	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/app_api.go:31	创建失败!	{"error": "ERROR: column \"deleted_at\" of relation \"app_info\" does not exist (SQLSTATE 42703)"}
+2022-11-09 23:42:27	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/app_api.go:59	更新失败!	{"error": "ERROR: column \"updated_at\" of relation \"app_info\" does not exist (SQLSTATE 42703)"}
+2022-11-09 23:42:46	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/app_api.go:59	更新失败!	{"error": "ERROR: cached plan must not change result type (SQLSTATE 0A000)"}
+2022-11-09 23:43:15	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/app_api.go:59	更新失败!	{"error": "ERROR: record \"new\" has no field \"updated_on\" (SQLSTATE 42703)"}
+2022-11-09 23:44:07	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/app_api.go:59	更新失败!	{"error": "ERROR: record \"new\" has no field \"updated_on\" (SQLSTATE 42703)"}
+2022-11-09 23:44:55	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/app_api.go:59	更新失败!	{"error": "ERROR: record \"new\" has no field \"updated_on\" (SQLSTATE 42703)"}
+2022-11-09 23:45:43	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/app_api.go:59	更新失败!	{"error": "ERROR: duplicate key value violates unique constraint \"app_info_pkey\" (SQLSTATE 23505)"}
+2022-11-10 00:00:42	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/app_api.go:29	获取失败!	{"error": "ERROR: column admin_type.created_at does not exist (SQLSTATE 42703)"}
+2022-11-19 23:04:26	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2022-12-05 22:52:25	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2022-12-07 23:55:48	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:25	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-07 23:55:48	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:28	获取失败!	{"error": "record not found"}
+2022-12-07 23:56:19	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:25	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-07 23:56:19	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:28	获取失败!	{"error": "record not found"}
+2022-12-08 00:00:10	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:25	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-08 00:00:10	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:28	获取失败!	{"error": "record not found"}
+2022-12-08 00:00:29	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:25	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-08 00:00:29	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:28	获取失败!	{"error": "record not found"}
+2022-12-08 00:01:24	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-08 00:01:24	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:28	获取失败!	{"error": "record not found"}
+2022-12-08 00:22:04	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-08 00:22:04	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:28	获取失败!	{"error": "record not found"}
+2022-12-08 23:54:44	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-12-11 17:55:17	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-11 17:55:17	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:28	获取失败!	{"error": "record not found"}
+2022-12-11 17:56:37	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-11 17:56:37	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:28	获取失败!	{"error": "record not found"}
+2022-12-11 17:59:07	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-11 17:59:07	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:28	获取失败!	{"error": "record not found"}
+2022-12-11 17:59:19	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-12-12 21:16:53	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-12 21:16:53	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:28	获取失败!	{"error": "record not found"}
+2022-12-12 21:22:02	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-12-12 21:25:09	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-12-12 23:03:27	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:63	登陆失败! 用户名不存在或者密码错误!	{"error": "密码错误"}
+2022-12-12 23:07:20	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:81	更新密码失败!	{"error": "原密码错误"}
+2022-12-12 23:07:25	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:81	更新密码失败!	{"error": "原密码错误"}
+2022-12-13 22:29:37	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-13 22:29:38	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:29	获取失败!	{"error": "record not found"}
+2022-12-14 15:30:07	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-14 15:30:08	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:29	获取失败!	{"error": "record not found"}
+2022-12-14 15:55:46	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-12-15 23:49:12	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-15 23:49:12	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:29	获取失败!	{"error": "record not found"}
+2022-12-16 19:04:11	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-16 19:04:11	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:29	获取失败!	{"error": "record not found"}
+2022-12-16 21:01:29	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-16 21:01:29	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:29	获取失败!	{"error": "record not found"}
+2022-12-16 23:58:08	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:57	获取失败!	{"error": "ERROR: column \"username\" does not exist (SQLSTATE 42703)"}
+2022-12-17 15:28:43	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-17 15:28:43	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:29	获取失败!	{"error": "record not found"}
+2022-12-17 15:29:22	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:55	获取失败!	{"error": "ERROR: relation \"rows\" does not exist (SQLSTATE 42P01)"}
+2022-12-17 15:31:09	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:55	获取失败!	{"error": "ERROR: relation \"rows\" does not exist (SQLSTATE 42P01)"}
+2022-12-17 15:36:02	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:55	获取失败!	{"error": "unsupported data type: 0xc000688d40: Table not set, please set it like: db.Model(&user) or db.Table(\"users\")"}
+2022-12-17 15:39:38	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:55	获取失败!	{"error": "sql: expected 13 destination arguments in Scan, not 1; unsupported data type: 0xc000688e10: Table not set, please set it like: db.Model(&user) or db.Table(\"users\")"}
+2022-12-17 15:43:46	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:55	获取失败!	{"error": "sql: expected 13 destination arguments in Scan, not 1; unsupported data type: 0xc000038340: Table not set, please set it like: db.Model(&user) or db.Table(\"users\")"}
+2022-12-17 15:44:37	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:55	获取失败!	{"error": "sql: expected 13 destination arguments in Scan, not 1; unsupported data type: 0xc0004c4af0: Table not set, please set it like: db.Model(&user) or db.Table(\"users\")"}
+2022-12-17 15:46:20	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:55	获取失败!	{"error": "sql: expected 13 destination arguments in Scan, not 1; unsupported data type: 0xc0000ca3a0: Table not set, please set it like: db.Model(&user) or db.Table(\"users\")"}
+2022-12-18 14:34:15	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-18 14:34:15	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:29	获取失败!	{"error": "record not found"}
+2022-12-18 21:37:31	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:85	创建失败!	{"error": "cannot encode status undefined"}
+2022-12-18 22:22:31	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:193	获取失败!	{"error": "ERROR: column \" * \" does not exist (SQLSTATE 42703)"}
+2022-12-18 22:23:28	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:193	获取失败!	{"error": "ERROR: column \" id \" does not exist (SQLSTATE 42703)"}
+2022-12-19 20:25:24	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-19 20:25:24	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:29	获取失败!	{"error": "record not found"}
+2022-12-20 20:57:43	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-20 20:57:43	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:29	获取失败!	{"error": "record not found"}
+2022-12-21 21:40:42	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-21 21:40:42	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:29	获取失败!	{"error": "record not found"}
+2022-12-22 22:38:20	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-22 22:38:20	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:29	获取失败!	{"error": "record not found"}
+2022-12-23 22:26:23	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-23 22:26:23	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:32	获取失败!	{"error": "record not found"}
+2022-12-24 22:54:42	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-24 22:54:42	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:32	获取失败!	{"error": "record not found"}
+2022-12-25 00:27:31	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:63	登陆失败! 用户名不存在或者密码错误!	{"error": "密码错误"}
+2022-12-25 00:28:15	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:63	登陆失败! 用户名不存在或者密码错误!	{"error": "密码错误"}
+2022-12-25 00:33:47	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:63	登陆失败! 用户名不存在或者密码错误!	{"error": "密码错误"}
+2022-12-25 00:38:04	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:63	登陆失败! 用户名不存在或者密码错误!	{"error": "密码错误"}
+2022-12-25 00:38:12	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:63	登陆失败! 用户名不存在或者密码错误!	{"error": "密码错误"}
+2022-12-25 00:41:25	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/redis_util.go:42	RedisStoreGetError!	{"error": "redis: nil"}
+2022-12-25 00:58:21	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:63	登陆失败! 用户名不存在或者密码错误!	{"error": "密码错误"}
+2022-12-25 01:10:25	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:63	登陆失败! 用户名不存在或者密码错误!	{"error": "密码错误"}
+2022-12-25 01:14:09	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/user_api.go:63	登陆失败! 用户名不存在或者密码错误!	{"error": "密码错误"}
+2022-12-25 22:34:17	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-25 22:34:17	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:32	获取失败!	{"error": "record not found"}
+2022-12-26 22:24:48	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-26 22:24:48	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:33	获取用户信息失败!	{"error": "record not found"}
+2022-12-27 21:51:08	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/utils/claims.go:27	从Gin的Context中获取从jwt解析信息失败, 请检查请求头是否存在x-token且claims是否为规定结构
+2022-12-27 21:51:08	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/admin/admin_api.go:33	获取用户信息失败!	{"error": "record not found"}
+2023-01-02 15:47:12	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-02-18 23:55:04	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-02-18 23:56:43	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/film_api.go:33	获取失败!	{"error": "unsupported data type: &[]: Table not set, please set it like: db.Model(&user) or db.Table(\"users\")"}
+2023-02-18 23:58:10	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-02-18 23:58:12	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/film_api.go:33	获取失败!	{"error": "unsupported data type: &[]: Table not set, please set it like: db.Model(&user) or db.Table(\"users\")"}
+2023-02-19 00:00:17	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-02-19 00:01:17	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/film_api.go:33	获取失败!	{"error": "unsupported data type: &[]: Table not set, please set it like: db.Model(&user) or db.Table(\"users\")"}
+2023-02-19 00:04:46	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/film_api.go:33	获取失败!	{"error": "unsupported data type: &[]: Table not set, please set it like: db.Model(&user) or db.Table(\"users\")"}
+2023-02-19 00:08:18	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/film_api.go:33	获取失败!	{"error": "unsupported data type: &[]: Table not set, please set it like: db.Model(&user) or db.Table(\"users\")"}
+2023-02-19 00:10:15	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/film_api.go:33	获取失败!	{"error": "unsupported data type: &[]: Table not set, please set it like: db.Model(&user) or db.Table(\"users\")"}
+2023-02-19 00:11:32	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-02-19 00:17:45	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-02-19 00:17:53	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/film_api.go:33	获取失败!	{"error": "sql: Scan error on column index 12, name \"category\": unsupported Scan, storing driver.Value type string into type *[]string; sql: Scan error on column index 12, name \"category\": unsupported Scan, storing driver.Value type string into type *[]string; sql: Scan error on column index 12, name \"category\": unsupported Scan, storing driver.Value type string into type *[]string"}
+2023-02-19 00:21:55	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-02-19 14:58:23	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-02-19 23:55:10	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-02-20 23:00:11	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-02-21 22:12:12	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-02-23 23:09:58	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-02-25 23:27:50	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-02-26 22:00:04	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-02-27 22:18:05	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-03-10 23:37:52	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-03-11 16:01:42	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/redis.go:20	redis connect ping failed, err:	{"error": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+2023-03-11 17:48:54	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/mongo.go:32	find error : 	{"error": "error decoding key director: cannot decode document into []response.Director"}
+2023-03-11 17:51:38	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/initialize/mongo.go:32	find error : 	{"error": "error decoding key publish_date: parsing time \"2021-03-19\" as \"2006-01-02T15:04:05.999Z07:00\": cannot parse \"\" as \"T\""}
+2023-03-11 18:39:26	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/api/public/film_api.go:33	获取失败!	{"error": "document is nil"}
+2023-03-12 00:15:57	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/service/film_service.go:60	Mongo cursor error : 	{"error": "(BadValue) Skip value must be non-negative, but received: -5"}
+2023-03-13 00:03:18	ERROR	/Volumes/my_ssd/VisualSpace/golang/gin_api_02/service/film_service.go:86	Mongo cursor error : 	{"error": "canceled while checking out a connection from connection pool: context canceled; maxPoolSize: 100, connections in use by cursors: 0, connections in use by transactions: 0, connections in use by other operations: 0"}
