@@ -3,7 +3,8 @@
 .idea/
 /web/node_modules
 /web/dist
-
+/tmp
+/log
 .DS_Store
 
 # local env files
