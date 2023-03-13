@@ -58,6 +58,9 @@ func (filmService *FilmService) GetMfilmInfo(queryModel res.FilmQuery) (list int
 	opts := options.Find()
 	var filmList []res.Mfilm
 	filter := bson.M{}
+	fmt.Println(primitive.NewDateTimeFromTime(queryModel.PublishStart))
+	fmt.Println(primitive.NewDateTimeFromTime(queryModel.PublishEnd))
+
 	if queryModel.UniqueId != "" {
 		filter["unique_id"] = queryModel.UniqueId
 	}
@@ -83,9 +86,12 @@ func (filmService *FilmService) GetMfilmInfo(queryModel res.FilmQuery) (list int
 		categoryId, _ := primitive.ObjectIDFromHex(queryModel.CategoryId)
 		filter["category._id"] = categoryId
 	}
+	if !queryModel.PublishStart.IsZero() && !queryModel.PublishEnd.IsZero() {
+		filter["publish_date"] = bson.M{"$gte": primitive.NewDateTimeFromTime(queryModel.PublishStart), "$lte": primitive.NewDateTimeFromTime(queryModel.PublishEnd)}
+	}
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	cur, err := collection.Find(ctx, filter, opts.SetSkip(int64(skip)).SetLimit(int64(limit)))
+	cur, err := collection.Find(ctx, filter, opts.SetSort(bson.M{"publish_date": -1}).SetSkip(int64(skip)).SetLimit(int64(limit)))
 	if err != nil {
 		global.SYS_LOG.Error("Mongo cursor error : ", zap.Error(err))
 	}

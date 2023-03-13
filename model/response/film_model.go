@@ -38,8 +38,8 @@ type FilmQuery struct {
 	ActressId    string    `json:"actressId" form:"actressId" `
 	DirectorId   string    `json:"directorId" form:"directorId" `
 	StudioId     string    `json:"studioId" form:"studioId" `
-	PublishStart time.Time `json:"publishStart" form:"publishStart"`
-	PublishEnd   time.Time `json:"publishEnd" form:"publishEnd"`
+	PublishStart time.Time `json:"publishStart" form:"publishStart" time_format:"2006-01-02"`
+	PublishEnd   time.Time `json:"publishEnd" form:"publishEnd" time_format:"2006-01-02"`
 }
 
 type Actor struct {
@@ -84,7 +84,7 @@ type Mfilm struct {
 	Thumbnail   string             `json:"thumbnail"     bson:"thumbnail"`
 	Image       string             `json:"image"     bson:"image"`
 	Time        string             `json:"time"     bson:"time"`
-	PublishDate string             `json:"publishDate" bson:"publish_date"`
+	PublishDate primitive.DateTime `json:"publishDate" bson:"publish_date"`
 	Actor       []Actor            `json:"actor"         bson:"actor"`
 	Actress     []Actress          `json:"actress"         bson:"actress"`
 	Category    []Category         `json:"category"  bson:"category"`
