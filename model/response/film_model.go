@@ -52,7 +52,16 @@ type Actress struct {
 	ID        primitive.ObjectID `json:"id"           bson:"_id"`
 	Name      string             `json:"name"         bson:"name"`
 	Url       string             `json:"url"         bson:"url"`
+	Avatar    string             `json:"avatar"         bson:"avtar"`
+	Unit      string             `json:"unit"         bson:"unit"`
+	Birth     time.Time          `json:"birth"         bson:"birth"`
+	Figure    []string           `json:"figure"         bson:"figure"`
 	FilmCount int                `json:"filmCount"         bson:"film_count"`
+}
+
+type ActressQuery struct {
+	global.EXTEND_SEARCH
+	Actress
 }
 type Category struct {
 	ID        primitive.ObjectID `json:"id"           bson:"_id"`

@@ -58,9 +58,6 @@ func (filmService *FilmService) GetMfilmInfo(queryModel res.FilmQuery) (list int
 	opts := options.Find()
 	var filmList []res.Mfilm
 	filter := bson.M{}
-	fmt.Println(primitive.NewDateTimeFromTime(queryModel.PublishStart))
-	fmt.Println(primitive.NewDateTimeFromTime(queryModel.PublishEnd))
-
 	if queryModel.UniqueId != "" {
 		filter["unique_id"] = queryModel.UniqueId
 	}
@@ -105,4 +102,32 @@ func (filmService *FilmService) GetMfilmInfo(queryModel res.FilmQuery) (list int
 		filmList = append(filmList, filmItem)
 	}
 	return filmList, count, err
+}
+
+func (filmService *FilmService) GetActressList(queryModel res.ActressQuery) (list interface{}, total int64, err error) {
+	limit := queryModel.PageSize
+	skip := queryModel.PageSize * (queryModel.PageNumber - 1)
+	collection := global.SYS_MONGO.Collection("mav_actress")
+	opts := options.Find()
+	var actressList []res.Actress
+	filter := bson.M{}
+	if queryModel.ID != primitive.NilObjectID {
+		filter["_id"] = queryModel.ID
+	}
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	cur, err := collection.Find(ctx, filter, opts.SetSort(bson.M{"film_count": -1}).SetSkip(int64(skip)).SetLimit(int64(limit)))
+	if err != nil {
+		global.SYS_LOG.Error("Mongo cursor error : ", zap.Error(err))
+	}
+	if err = cur.All(ctx, &actressList); err != nil {
+		global.SYS_LOG.Error("Cursor convert error : ", zap.Error(err))
+	}
+	count, err := collection.CountDocuments(ctx, filter)
+	for cur.Next(ctx) {
+		var actressItem res.Actress
+		cur.Decode(&actressItem)
+		actressList = append(actressList, actressItem)
+	}
+	return actressList, count, err
 }
