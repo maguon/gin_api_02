@@ -17,10 +17,8 @@ type AdminCustomClaims struct {
 	jwt.StandardClaims
 }
 type BaseClaims struct {
-	ID          int64
-	Username    string
-	NickName    string
-	AuthorityId uint
+	ID    int64
+	Phone string
 }
 
 type AdminBaseClaims struct {

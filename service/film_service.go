@@ -111,8 +111,10 @@ func (filmService *FilmService) GetActressList(queryModel res.ActressQuery) (lis
 	opts := options.Find()
 	var actressList []res.Actress
 	filter := bson.M{}
-	if queryModel.ID != primitive.NilObjectID {
-		filter["_id"] = queryModel.ID
+	fmt.Println("actress id", queryModel.ActressId)
+	if queryModel.ActressId != "" {
+		objectId, _ := primitive.ObjectIDFromHex(queryModel.ActressId)
+		filter["_id"] = objectId
 	}
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()

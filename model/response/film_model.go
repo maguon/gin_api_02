@@ -61,6 +61,7 @@ type Actress struct {
 
 type ActressQuery struct {
 	global.EXTEND_SEARCH
+	ActressId string `json:"actressId" form:"actressId"`
 	Actress
 }
 type Category struct {
