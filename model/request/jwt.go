@@ -28,3 +28,8 @@ type AdminBaseClaims struct {
 	Username string
 	Type     int16
 }
+
+type ReqCaptcha struct {
+	Captcha   string `json:"captcha"`   // 验证码
+	CaptchaId string `json:"captchaId"` // 验证码ID
+}
