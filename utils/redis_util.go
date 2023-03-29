@@ -2,6 +2,7 @@ package utils
 
 import (
 	"context"
+	"fmt"
 	"gin_api_02/global"
 	"time"
 
@@ -28,6 +29,7 @@ func (rs *RedisStore) UseWithCtx(ctx context.Context) base64Captcha.Store {
 }
 
 func (rs *RedisStore) Set(id string, value string) error {
+	fmt.Println(rs.Context)
 	err := global.SYS_REDIS.Set(rs.Context, rs.PreKey+id, value, rs.Expiration).Err()
 	global.SYS_LOG.Info(id + "---" + value)
 	if err != nil {

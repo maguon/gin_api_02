@@ -28,6 +28,6 @@ type AdminBaseClaims struct {
 }
 
 type ReqCaptcha struct {
-	Captcha   string `json:"captcha"`   // 验证码
-	CaptchaId string `json:"captchaId"` // 验证码ID
+	Captcha   string `json:"captcha" form:"captcha" `    // 验证码
+	CaptchaId string `json:"captchaId" form:"captchaId"` // 验证码ID
 }

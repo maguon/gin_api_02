@@ -2,6 +2,7 @@ package public
 
 import (
 	api "gin_api_02/api"
+	"gin_api_02/middleware"
 
 	"github.com/gin-gonic/gin"
 )
@@ -20,7 +21,7 @@ func (s *PublicRouter) InitPublicRouter(Router *gin.RouterGroup) (R gin.IRoutes)
 		publicRouter.POST("login", publicApi.Login)
 		publicRouter.POST("register", publicApi.UserRegister)
 		publicRouter.POST("adminLogin", publicApi.AdminLogin)
-		publicRouter.GET("app", publicApi.GetAppInfo)
+		publicRouter.GET("app", middleware.CheckCaptcha(), publicApi.GetAppInfo)
 		publicRouter.GET("film", publicApi.GetFilmInfo)
 		publicRouter.GET("actress", publicApi.GetActressList)
 
