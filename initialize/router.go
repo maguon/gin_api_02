@@ -2,6 +2,7 @@ package initialize
 
 import (
 	docs "gin_api_02/docs"
+	"gin_api_02/global"
 	"gin_api_02/middleware"
 	"gin_api_02/router"
 
@@ -42,7 +43,9 @@ func Routers() *gin.Engine {
 	{
 		adminRouter.InitAdminRouter(AdminGroup)
 	}
-	docs.SwaggerInfo.BasePath = "/api"
-	Router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	if global.SYS_CONFIG.System.Mode == "debug" {
+		docs.SwaggerInfo.BasePath = "/api"
+		Router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	}
 	return Router
 }

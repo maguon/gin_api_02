@@ -9,6 +9,7 @@ import (
 
 func main() {
 	global.SYS_VP = initialize.Viper()
+
 	fmt.Println(global.SYS_CONFIG.Zap.OutputPaths)
 	global.SYS_LOG = initialize.Zap()
 	initialize.Redis()

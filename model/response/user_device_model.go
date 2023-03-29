@@ -19,6 +19,13 @@ type UserDevice struct {
 	LastAt      time.Time `json:"lastAt" form:"lastAt" gorm:"column:last_at" `
 }
 
+type UserDeviceQuery struct {
+	global.EXTEND_SEARCH
+	UserDevice
+	LastLoginStart time.Time `json:"lastLoginStart" form:"lastLoginStart"`
+	LastLoginEnd   time.Time `json:"lastLoginEnd" form:"lastLoginEnd"`
+}
+
 func (UserDevice) TableName() string {
 	return "user_device"
 }
