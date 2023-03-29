@@ -41,3 +41,35 @@ func (s *PublicApi) GetFilmInfo(c *gin.Context) {
 		PageSize:   queryModel.PageSize,
 	}, "获取成功", c)
 }
+
+// GetActressList
+// @Tags      Film
+// @Summary   分页获取Actress列表
+// @accept    application/json
+// @Produce   application/json
+// @Param     data  query     res.ActressQuery                       true  "页码, 每页大小, 搜索条件"
+// @Success   200   {object}  response.Response{data=response.QueryResult,msg=string}  "Actress列表,返回包括列表,总数,页码,每页数量"
+// @Router    /public/actress [get]
+func (s *PublicApi) GetActressList(c *gin.Context) {
+
+	var queryModel res.ActressQuery
+	err := c.ShouldBindQuery(&queryModel)
+	fmt.Println(c.Request.URL.Query())
+	fmt.Println(queryModel)
+	if err != nil {
+		response.FailWithMessage(err.Error(), c)
+		return
+	}
+	list, total, err := filmService.GetActressList(queryModel)
+	if err != nil {
+		global.SYS_LOG.Error("获取失败!", zap.Error(err))
+		response.FailWithMessage("获取失败", c)
+		return
+	}
+	response.OkWithDetailed(response.QueryResult{
+		List:       list,
+		Total:      total,
+		PageNumber: queryModel.PageNumber,
+		PageSize:   queryModel.PageSize,
+	}, "获取成功", c)
+}

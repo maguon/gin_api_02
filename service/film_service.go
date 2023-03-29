@@ -83,9 +83,12 @@ func (filmService *FilmService) GetMfilmInfo(queryModel res.FilmQuery) (list int
 		categoryId, _ := primitive.ObjectIDFromHex(queryModel.CategoryId)
 		filter["category._id"] = categoryId
 	}
+	if !queryModel.PublishStart.IsZero() && !queryModel.PublishEnd.IsZero() {
+		filter["publish_date"] = bson.M{"$gte": primitive.NewDateTimeFromTime(queryModel.PublishStart), "$lte": primitive.NewDateTimeFromTime(queryModel.PublishEnd)}
+	}
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
-	cur, err := collection.Find(ctx, filter, opts.SetSkip(int64(skip)).SetLimit(int64(limit)))
+	cur, err := collection.Find(ctx, filter, opts.SetSort(bson.M{"publish_date": -1}).SetSkip(int64(skip)).SetLimit(int64(limit)))
 	if err != nil {
 		global.SYS_LOG.Error("Mongo cursor error : ", zap.Error(err))
 	}
@@ -99,4 +102,34 @@ func (filmService *FilmService) GetMfilmInfo(queryModel res.FilmQuery) (list int
 		filmList = append(filmList, filmItem)
 	}
 	return filmList, count, err
+}
+
+func (filmService *FilmService) GetActressList(queryModel res.ActressQuery) (list interface{}, total int64, err error) {
+	limit := queryModel.PageSize
+	skip := queryModel.PageSize * (queryModel.PageNumber - 1)
+	collection := global.SYS_MONGO.Collection("mav_actress")
+	opts := options.Find()
+	var actressList []res.Actress
+	filter := bson.M{}
+	fmt.Println("actress id", queryModel.ActressId)
+	if queryModel.ActressId != "" {
+		objectId, _ := primitive.ObjectIDFromHex(queryModel.ActressId)
+		filter["_id"] = objectId
+	}
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+	cur, err := collection.Find(ctx, filter, opts.SetSort(bson.M{"film_count": -1}).SetSkip(int64(skip)).SetLimit(int64(limit)))
+	if err != nil {
+		global.SYS_LOG.Error("Mongo cursor error : ", zap.Error(err))
+	}
+	if err = cur.All(ctx, &actressList); err != nil {
+		global.SYS_LOG.Error("Cursor convert error : ", zap.Error(err))
+	}
+	count, err := collection.CountDocuments(ctx, filter)
+	for cur.Next(ctx) {
+		var actressItem res.Actress
+		cur.Decode(&actressItem)
+		actressList = append(actressList, actressItem)
+	}
+	return actressList, count, err
 }

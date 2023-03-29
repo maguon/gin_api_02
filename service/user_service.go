@@ -10,8 +10,6 @@ import (
 
 type UserService struct{}
 
-//@author: [piexlmax](https://github.com/piexlmax)
-//@author: [SliverHorn](https://github.com/SliverHorn)
 //@function: Login
 //@description: 用户登录
 //@param: u *model.SysUser
@@ -23,7 +21,7 @@ func (userService *UserService) Login(u *res.UserInfo) (userInter *res.UserInfo,
 	}
 
 	var user res.UserInfo
-	err = global.SYS_DB.Where("user_name = ?", u.Username).First(&user).Error
+	err = global.SYS_DB.Where("phone = ?", u.Phone).First(&user).Error
 	global.SYS_LOG.Info(user.Password)
 	global.SYS_LOG.Info(utils.BcryptHash(u.Password))
 	if err == nil {
@@ -34,9 +32,21 @@ func (userService *UserService) Login(u *res.UserInfo) (userInter *res.UserInfo,
 	return &user, err
 }
 
+//@function: Register
+//@description: 用户注册
+//@param: u *req.Login
+//@return: err error, userId int64
+
+func (userService *UserService) Register(userInfo *res.UserInfo) (userRes *res.UserInfo, err error) {
+	if nil == global.SYS_DB {
+		return nil, fmt.Errorf("db not init")
+	}
+	err = global.SYS_DB.Create(&userInfo).Error
+	return userInfo, err
+}
+
 //@function: GetUserInfo
 //@description: 获取用户信息
-//@param: uuid uuid.UUID
 //@return: err error, user system.SysUser
 
 func (userService *UserService) GetUserInfo(userId int64) (user res.UserInfo, err error) {

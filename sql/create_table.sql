@@ -30,8 +30,8 @@ select setval('admin_info_id_seq', 1000, false);
 -- ----------------------------
 CREATE TABLE "public"."admin_type" (
     "id" bigserial NOT NULL,
-    "created_on" timestamp with time zone NOT NULL DEFAULT NOW(),
-    "updated_on" timestamp with time zone NOT NULL DEFAULT NOW(),
+    "created_at" timestamp with time zone NOT NULL DEFAULT NOW(),
+    "updated_at" timestamp with time zone NOT NULL DEFAULT NOW(),
     "status" smallint NOT NULL DEFAULT 1,
     "type_name" character varying(50) NOT NULL,
     "menu_list" jsonb NOT NULL DEFAULT '{}',
@@ -41,38 +41,93 @@ CREATE TABLE "public"."admin_type" (
 create trigger admin_type_upt before
 update on admin_type for each row execute procedure update_timestamp_func();
 select setval('admin_type_id_seq', 1000, false);
+
 -- ----------------------------
--- Table structure for app_version
+-- Table structure for user_info
 -- ----------------------------
-CREATE TABLE public.app_version (
-    id bigserial NOT NULL,
-    created_on timestamptz NOT NULL DEFAULT now(),
-    updated_on timestamptz NOT NULL DEFAULT now(),
-    app_type int2 NOT NULL,
-    device_type int2 NOT NULL,
-    version_ser varchar(20) NULL,
-    version_num int4 NULL,
-    min_version_num int4 NULL,
-    force_up_flag int2 NULL,
-    url varchar(200) NULL,
-    remarks varchar(200) NULL,
-    status int2 NOT NULL,
-    CONSTRAINT app_version_pk PRIMARY KEY (id)
+CREATE TABLE public.user_info (
+    "id" bigserial NOT NULL,
+    "created_at" timestamp with time zone NOT NULL DEFAULT NOW(),
+    "updated_at" timestamp with time zone NOT NULL DEFAULT NOW(),
+    "status" int2 NOT NULL,
+    "phone" varchar(20) NOT NULL,
+    "email" varchar(50) NULL,
+    "password" varchar(50) NULL,
+    "name" varchar(20) NULL,
+    "avatar" varchar(200) NULL,
+    "gender" int2 NULL,
+    "birth" date NULL,
+    "remarks" varchar(200) NULL,
+    CONSTRAINT user_info_pk PRIMARY KEY (id)
 );
 -- Column comments
-COMMENT ON COLUMN public.app_version.app_type IS 'app类型(1-新能源)';
-COMMENT ON COLUMN public.app_version.device_type IS '设备类型(1-安卓 2-苹果)';
-COMMENT ON COLUMN public.app_version.version_ser IS '版本号';
-COMMENT ON COLUMN public.app_version.version_num IS '版本序号';
-COMMENT ON COLUMN public.app_version.min_version_num IS '最小支持版本';
-COMMENT ON COLUMN public.app_version.force_up_flag IS '是否强制更新(0-不更新 1-更新)';
-COMMENT ON COLUMN public.app_version.url IS '下载地址';
-COMMENT ON COLUMN public.app_version.remarks IS '备注';
-COMMENT ON COLUMN public.app_version.status IS '状态(0:停用,1:启用)';
+COMMENT ON COLUMN public.user_info.gender IS '性别(1-男,2-女)';
 
-create trigger app_version_upt before
-update on app_version for each row execute procedure update_timestamp_func();
-select setval('app_version_id_seq', 1000, false);
+create trigger user_info_upt before
+update on user_info for each row execute procedure update_timestamp_func();
+select setval('user_info_id_seq', 100000, false);
+
+-- -------------------------------
+-- Table structure for user_device
+-- -------------------------------
+CREATE TABLE public.user_device (
+    "id" bigserial NOT NULL,
+    "created_at" timestamp with time zone NOT NULL DEFAULT NOW(),
+    "updated_at" timestamp with time zone NOT NULL DEFAULT NOW(),
+    "last_login_at" timestamp with time zone NOT NULL DEFAULT NOW(),
+    "user_id" int8 NOT NULL,
+    "device_id" varchar(60) NULL,
+    "device_token" varchar(60) NULL,
+    "device_type" int2 NOT NULL,
+    "app_type" int2 NOT NULL,
+    "user_type" int2 NOT NULL,
+    "version" varchar(20) NULL,
+    "version_num" int4 NOT NULL,
+    CONSTRAINT user_device_pk PRIMARY KEY (id)
+);
+-- Column comments
+COMMENT ON COLUMN public.user_device.device_id IS '设备标识';
+COMMENT ON COLUMN public.user_device.device_token IS '设备推送token';
+COMMENT ON COLUMN public.user_device.device_type IS '设备类型(1-安卓 2-苹果)';
+COMMENT ON COLUMN public.user_device.user_type IS '设备类型(1-求职 2-招聘)';
+
+create trigger user_device_upt before
+update on user_device for each row execute procedure update_timestamp_func();
+select setval('user_device_id_seq', 1000, false);
+
+
+-- ----------------------------
+-- Table structure for app_info
+-- ----------------------------
+CREATE TABLE public.app_info (
+    "id" bigserial NOT NULL,
+    "created_at" timestamp with time zone NOT NULL DEFAULT NOW(),
+    "updated_at" timestamp with time zone NOT NULL DEFAULT NOW(),
+    "status" int2 NOT NULL,
+    "app_type" int2 NOT NULL,
+    "device_type" int2 NOT NULL,
+    "version" varchar(20) NULL,
+    "version_num" int4 NULL,
+    "min_version_num" int4 NULL,
+    "force_up_flag" int2 NULL,
+    "url" varchar(200) NULL,
+    "remarks" varchar(200) NULL,
+    CONSTRAINT app_info_pk PRIMARY KEY (id)
+);
+-- Column comments
+COMMENT ON COLUMN public.app_info.app_type IS 'app类型(1-主App)';
+COMMENT ON COLUMN public.app_info.device_type IS '设备类型(1-安卓 2-苹果)';
+COMMENT ON COLUMN public.app_info.version IS '版本号';
+COMMENT ON COLUMN public.app_info.version_num IS '版本序号';
+COMMENT ON COLUMN public.app_info.min_version_num IS '最小支持版本';
+COMMENT ON COLUMN public.app_info.force_up_flag IS '是否强制更新( 1-更新 0-不更新)';
+COMMENT ON COLUMN public.app_info.url IS '下载地址';
+COMMENT ON COLUMN public.app_info.remarks IS '备注';
+COMMENT ON COLUMN public.app_info.status IS '状态(0:停用,1:启用)';
+
+create trigger app_info_upt before
+update on app_info for each row execute procedure update_timestamp_func();
+select setval('app_info_id_seq', 1000, false);
 
 
 -- ----------------------------

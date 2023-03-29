@@ -5,6 +5,7 @@
 /web/dist
 /tmp
 /log
+/docs
 .DS_Store
 
 # local env files

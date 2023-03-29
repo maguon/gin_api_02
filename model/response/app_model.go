@@ -11,8 +11,8 @@ type AppInfo struct {
 	Version       string `json:"version" form:"version" `
 	VersionNum    int    `json:"versionNum,string" form:"versionNum" gorm:"column:version_num" `
 	MinVersionNum int    `json:"minVersionNum,string" form:"minVersionNum" gorm:"column:min_version_num" `
-	ForceUpdate   int    `json:"forceUpdate" form:"forceUpdate" gorm:"column:force_update" `
-	Status        int    `json:"status" form:"status" `
+	ForceUpdate   int    `json:"forceUpdate" form:"forceUpdate" gorm:"column:force_update" binding:"required"`
+	Status        int    `json:"status" form:"status" binding:"required"`
 	Url           string `json:"url" form:"url" `
 	Remarks       string `json:"remark" form:"remark" `
 }

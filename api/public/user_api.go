@@ -6,6 +6,7 @@ import (
 	req "gin_api_02/model/request"
 	res "gin_api_02/model/response"
 	"gin_api_02/utils"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis/v8"
@@ -28,7 +29,7 @@ func (b *PublicApi) Login(c *gin.Context) {
 	}
 
 	if store.Verify(l.CaptchaId, l.Captcha, true) {
-		u := &res.UserInfo{Username: l.Username, Password: l.Password}
+		u := &res.UserInfo{Phone: l.Phone, Password: l.Password}
 		user, err := userService.Login(u)
 		if err != nil {
 			global.SYS_LOG.Error("登陆失败! 用户名不存在或者密码错误!", zap.Error(err))
@@ -41,6 +42,31 @@ func (b *PublicApi) Login(c *gin.Context) {
 	response.FailWithMessage("验证码错误", c)
 }
 
+// Register
+// @Tags     User
+// @Summary  用户注册
+// @Produce   application/json
+// @Param    data  body      req.Login                                             true  "用户名, 密码, 验证码"
+// @Success  200   {object}  response.Response{data=res.LoginResponse,msg=string}  "返回包括用户信息,token,过期时间"
+// @Router   /public/register [post]
+func (b *PublicApi) UserRegister(c *gin.Context) {
+	var l req.Login
+	err := c.ShouldBindJSON(&l)
+	if err != nil {
+		response.FailWithMessage(err.Error(), c)
+		return
+	}
+	u := &res.UserInfo{Phone: l.Phone, Password: l.Password}
+	user, err := userService.Register(u)
+	if err != nil {
+		global.SYS_LOG.Error("注册失败! 用户名不存在或者密码错误!", zap.Error(err))
+		response.FailWithMessage("用户名不存在或者密码错误", c)
+		return
+	}
+
+	b.TokenNext(c, *user)
+}
+
 // Login
 // @Tags     Admin
 // @Summary  用户登录
@@ -49,7 +75,7 @@ func (b *PublicApi) Login(c *gin.Context) {
 // @Success  200   {object}  response.Response{data=res.AdminLoginResponse,msg=string}  "返回包括用户信息,token,过期时间"
 // @Router   /public/adminLogin [post]
 func (b *PublicApi) AdminLogin(c *gin.Context) {
-	var l req.Login
+	var l req.AdminLogin
 	err := c.ShouldBindJSON(&l)
 	if err != nil {
 		response.FailWithMessage(err.Error(), c)
@@ -74,10 +100,8 @@ func (b *PublicApi) AdminLogin(c *gin.Context) {
 func (b *PublicApi) TokenNext(c *gin.Context, user res.UserInfo) {
 	j := &utils.JWT{SigningKey: []byte(global.SYS_CONFIG.JWT.SigningKey)} // 唯一签名
 	claims := j.CreateClaims(req.BaseClaims{
-		ID:          user.ID,
-		NickName:    user.NickName,
-		Username:    user.Username,
-		AuthorityId: user.AuthorityId,
+		ID:    user.ID,
+		Phone: user.Phone,
 	})
 	token, err := j.CreateToken(claims)
 	if err != nil {
@@ -94,8 +118,8 @@ func (b *PublicApi) TokenNext(c *gin.Context, user res.UserInfo) {
 		return
 	}
 
-	if _, err := jwtService.GetRedisJWT(user.Username); err == redis.Nil {
-		if err := jwtService.SetRedisJWT(token, user.Username); err != nil {
+	if _, err := jwtService.GetRedisJWT(strconv.FormatInt(user.ID, 10)); err == redis.Nil {
+		if err := jwtService.SetRedisJWT(token, strconv.FormatInt(user.ID, 10)); err != nil {
 			global.SYS_LOG.Error("设置登录状态失败!", zap.Error(err))
 			response.FailWithMessage("设置登录状态失败", c)
 			return

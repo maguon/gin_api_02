@@ -18,9 +18,11 @@ func (s *PublicRouter) InitPublicRouter(Router *gin.RouterGroup) (R gin.IRoutes)
 	{
 		publicRouter.GET("captcha", publicApi.Captcha)
 		publicRouter.POST("login", publicApi.Login)
+		publicRouter.POST("register", publicApi.UserRegister)
 		publicRouter.POST("adminLogin", publicApi.AdminLogin)
 		publicRouter.GET("app", publicApi.GetAppInfo)
 		publicRouter.GET("film", publicApi.GetFilmInfo)
+		publicRouter.GET("actress", publicApi.GetActressList)
 
 	}
 	return publicRouter

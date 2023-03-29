@@ -49,7 +49,7 @@ func JWTAuth() gin.HandlerFunc {
 					global.SYS_LOG.Error("get redis jwt failed", zap.Error(err))
 				}
 				// 无论如何都要记录当前的活跃状态
-				_ = jwtService.SetRedisJWT(newToken, newClaims.Username)
+				_ = jwtService.SetRedisJWT(newToken, newClaims.Phone)
 			}
 		}
 		c.Set("claims", claims)

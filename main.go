@@ -13,7 +13,7 @@ func main() {
 	global.SYS_LOG = initialize.Zap()
 	initialize.Redis()
 	initialize.Mongo()
-	// global.SYS_DB = initialize.Gorm()
+	global.SYS_DB = initialize.Gorm()
 
 	Router := initialize.Routers()
 	global.SYS_LOG.Info("server start ")
